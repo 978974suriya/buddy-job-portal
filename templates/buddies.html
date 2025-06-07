@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h2 class="text-center my-4 animate__animated animate__fadeInDown">Buddy Success Stories</h2>
+    <p class="lead text-center mb-5 text-secondary">
+        Real people, real journeys. Our Buddies found jobs, built teams, and changed their lives with us. <br>
+        <span class="fw-semibold">Read their stories and get inspired!</span>
+    </p>
+    <div class="row g-4">
+        {% for buddy in buddies %}
+        <div class="col-md-4">
+            <div class="card h-100 shadow-lg border-0 animate__animated 
+                {% if loop.index % 2 == 0 %}animate__slideInLeft{% else %}animate__slideInRight{% endif %}">
+                <div class="card-body text-center">
+                    <img src="{{ buddy.pic }}" alt="{{ buddy.name }}" class="mb-3" style="width:90px;height:90px;border-radius:50%;object-fit:cover;box-shadow:0 4px 12px rgba(0,0,0,0.11)">
+                    <h5 class="fw-bold text-primary">{{ buddy.name }}</h5>
+                    <p class="text-muted mb-1">{{ buddy.role }}</p>
+                    <hr style="width:40px;margin:auto;">
+                    <p class="small mt-3">{{ buddy.story }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <!-- More buddy cards for variety and color -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-lg border-0 animate__animated animate__slideInLeft">
+                <div class="card-body text-center">
+                    <img src="/static/buddies/ajay.jpg" alt="Ajay" class="mb-3" style="width:90px;height:90px;border-radius:50%;object-fit:cover;">
+                    <h5 class="fw-bold text-primary">Ajay</h5>
+                    <p class="text-muted mb-1">Data Analyst</p>
+                    <hr style="width:40px;margin:auto;">
+                    <p class="small mt-3">“The search was so easy, and I found an awesome analytics role in just 4 days!”</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 shadow-lg border-0 animate__animated animate__slideInRight">
+                <div class="card-body text-center">
+                    <img src="/static/buddies/isha.jpg" alt="Isha" class="mb-3" style="width:90px;height:90px;border-radius:50%;object-fit:cover;">
+                    <h5 class="fw-bold text-primary">Isha</h5>
+                    <p class="text-muted mb-1">Product Manager</p>
+                    <hr style="width:40px;margin:auto;">
+                    <p class="small mt-3">“Buddy Jobs helped me discover passionate engineers for my startup!”</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center mt-5">
+        <a href="{{ url_for('job_search') }}" class="btn btn-lg btn-primary me-2 animate__animated animate__pulse animate__infinite">Find Jobs</a>
+        <a href="{{ url_for('candidate_search') }}" class="btn btn-lg btn-success animate__animated animate__pulse animate__infinite">Find Talent</a>
+    </div>
+</div>
+{% endblock %}

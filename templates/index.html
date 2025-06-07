@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <section class="text-center py-5">
+    <h1 class="display-4 fw-bold animate__animated animate__fadeInDown">Welcome to <span style="color:#4154f1">Buddy Job Portal</span></h1>
+    <p class="lead animate__animated animate__fadeInUp animate__delay-1s">
+      Your gateway to top opportunities and best talent across the country.
+    </p>
+    <div class="mt-4">
+      <a href="{{ url_for('job_search') }}" class="btn btn-primary btn-lg me-3 animate__animated animate__bounceIn animate__delay-2s">
+        <i class="bi bi-briefcase"></i> Job Seeker Search
+      </a>
+      <a href="{{ url_for('candidate_search') }}" class="btn btn-success btn-lg animate__animated animate__bounceIn animate__delay-2s">
+        <i class="bi bi-people"></i> Recruiter Search
+      </a>
+    </div>
+  </section>
+
+  <section class="row mb-4">
+    <div class="col-lg-4 mb-4">
+      <div class="card shadow-sm animate__animated animate__fadeInLeft">
+        <div class="card-body">
+          <h5 class="card-title"><i class="bi bi-stars text-primary me-2"></i>Featured Jobs</h5>
+          <ul class="list-unstyled mt-3">
+            {% for job in jobs %}
+            <li class="mb-3 d-flex align-items-center">
+              <img src="{{ job['logo_url'] }}" class="me-3" style="width:40px; height:40px; border-radius:8px; object-fit:cover;">
+              <div>
+                <a href="{{ url_for('job_detail', job_id=job['id']) }}"><strong>{{ job['role'] }}</strong></a>
+                <br><small class="text-muted">{{ job['company'] }}</small>
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 mb-4">
+      <div class="card shadow-sm animate__animated animate__fadeInUp">
+        <div class="card-body">
+          <h5 class="card-title"><i class="bi bi-person-check-fill text-success me-2"></i>Featured Candidates</h5>
+          <ul class="list-unstyled mt-3">
+            {% for cand in candidates %}
+            <li class="mb-3 d-flex align-items-center">
+              <img src="{{ cand['profile_pic'] }}" class="me-3" style="width:40px; height:40px; border-radius:50%;">
+              <div>
+                <a href="{{ url_for('candidate_detail', cand_id=cand['id']) }}"><strong>{{ cand['name'] }}</strong></a>
+                <br><small class="text-muted">{{ cand['skill'] }}</small>
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 mb-4">
+      <div class="card shadow-sm animate__animated animate__fadeInRight">
+        <div class="card-body">
+          <h5 class="card-title"><i class="bi bi-chat-quote-fill text-warning me-2"></i>Buddy Testimonials</h5>
+          {% for t in testimonials %}
+          <div class="d-flex align-items-center mb-3">
+            <img src="{{ t.pic }}" class="me-3" style="width:40px; height:40px; border-radius:50%;">
+            <div>
+              <strong>{{ t.name }}</strong><br>
+              <small class="text-muted">{{ t.text }}</small>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}

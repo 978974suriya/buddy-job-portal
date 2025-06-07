@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-md-8 offset-md-2">
+            <div class="card shadow animate__animated animate__fadeIn">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="{{ candidate['profile_pic'] }}" style="width:60px;height:60px;border-radius:50%;object-fit:cover;margin-right:20px;">
+                        <div>
+                            <h2>{{ candidate['name'] }}</h2>
+                            <h5 class="text-muted">{{ candidate['skill'] }}</h5>
+                        </div>
+                    </div>
+                    <p><b>Experience:</b> {{ candidate['experience'] }} years</p>
+                    <p><b>Certification:</b> {{ candidate['certification'] }}</p>
+                    <p><b>Location:</b> {{ candidate['location'] }}</p>
+                    <p><b>Bio:</b> {{ candidate['bio'] }}</p>
+                    <a href="{{ url_for('candidate_search') }}" class="btn btn-outline-secondary mt-2">Back to Search</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

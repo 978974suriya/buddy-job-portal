@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-7 mt-4">
+            <div class="card shadow-lg border-0 animate__animated animate__fadeIn">
+                <div class="card-body" style="background: linear-gradient(110deg, #e0e7ff 60%, #fff 100%); border-radius: 16px;">
+                    <h2 class="fw-bold text-primary mb-3"><i class="bi bi-envelope-check"></i> Contact Buddy Team</h2>
+                    <p class="lead text-secondary mb-4">
+                        Quick help, feedback, or to share your Buddy success? We reply fast and with a smile.
+                    </p>
+                    <form method="post" class="row g-3">
+                        <div class="col-md-6">
+                            <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="col-12">
+                            <textarea name="message" class="form-control" rows="4" placeholder="Your Message" required></textarea>
+                        </div>
+                        <div class="col-12 text-end">
+                            <button type="submit" class="btn btn-primary btn-lg px-4">Send Message</button>
+                        </div>
+                        {% if message %}
+                        <div class="alert alert-success mt-3" role="alert">{{ message }}</div>
+                        {% endif %}
+                    </form>
+                    <hr>
+                    <div class="text-center text-secondary mt-3">
+                        <p class="mb-1"><b>Email:</b> support@buddyjobs.com</p>
+                        <p class="mb-1"><b>Phone:</b> +91 98765 43210</p>
+                        <p class="mb-0"><b>Follow us:</b> 
+                            <a href="#" class="text-primary me-2"><i class="bi bi-facebook"></i> Facebook</a>
+                            <a href="#" class="text-info me-2"><i class="bi bi-twitter"></i> Twitter</a>
+                            <a href="#" class="text-danger"><i class="bi bi-instagram"></i> Instagram</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

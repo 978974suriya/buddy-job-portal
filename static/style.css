@@ -1,0 +1,63 @@
+body {
+    background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 100%);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    min-height: 100vh;
+}
+.card {
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(80, 80, 180, 0.12);
+    transition: transform 0.18s cubic-bezier(.4,2,.4,.8), box-shadow 0.15s;
+    background: linear-gradient(100deg, #fdf6ff 90%, #f2f5ff 100%);
+}
+.card:hover {
+    transform: scale(1.03) translateY(-4px);
+    box-shadow: 0 8px 32px rgba(65, 84, 241, 0.18);
+}
+.btn-primary, .btn-success {
+    border-radius: 10px;
+    font-weight: bold;
+    box-shadow: 0 2px 16px rgba(65,84,241,0.04);
+}
+h1, h2, h3, h4, h5 {
+    color: #4154f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #b3b3f3;
+    border-radius: 10px;
+}
+::-webkit-scrollbar {
+    width: 7px;
+    background: #f0f3fa;
+}
+footer {
+    font-size: 1.08rem;
+    color: #6b6b6b;
+    background: #ece9ff;
+    border-top: 1px solid #e0e7ff;
+}
+a {
+    text-decoration: none;
+    color: #4154f1;
+}
+a:hover {
+    text-decoration: underline;
+}
+.animate__slideInLeft, .animate__slideInRight, .animate__slideInUp {
+    --animate-duration: 0.95s;
+}
+body.dark {
+    background-color: #121212;
+    color: #f1f1f1;
+}
+
+.dark-mode-glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark-card {
+    background: #1e1e2f;
+    color: #f0f0f0;
+}

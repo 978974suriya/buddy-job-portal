@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h2 class="mb-4 animate__animated animate__fadeInDown">Find Skilled Candidates</h2>
+    
+    <form method="post" class="row g-3 mb-4 p-3 bg-light dark-mode-glass rounded shadow-sm animate__animated animate__fadeIn">
+        <div class="col-md-3">
+            <input type="text" name="name" class="form-control" placeholder="Candidate Name">
+        </div>
+        <div class="col-md-3">
+            <input type="text" name="skill" class="form-control" placeholder="Skill (e.g. Python)">
+        </div>
+        <div class="col-md-2">
+            <input type="text" name="location" class="form-control" placeholder="Location">
+        </div>
+        <div class="col-md-2">
+            <input type="number" name="experience" class="form-control" placeholder="Min. Experience">
+        </div>
+        <div class="col-md-2">
+            <input type="text" name="certification" class="form-control" placeholder="Certification">
+        </div>
+        <div class="col-md-12 text-end">
+            <button type="submit" class="btn btn-success px-4 py-2 shadow-sm">Search Candidates</button>
+        </div>
+    </form>
+
+    <h4 class="mb-3">Results:</h4>
+    <div class="row">
+        {% if results %}
+            {% for cand in results %}
+            <div class="col-md-6 mb-4">
+                <div class="card border-0 shadow-sm animate__animated animate__fadeInUp dark-card">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="{{ cand['profile_pic'] }}" alt="Profile" class="me-3" style="width:50px; height:50px; border-radius:50%; object-fit:cover;">
+                            <div>
+                                <a href="{{ url_for('candidate_detail', cand_id=cand['id']) }}">
+                                    <h5 class="mb-0 fw-semibold text-primary">{{ cand['name'] }}</h5>
+                                </a>
+                                <div class="text-muted small">{{ cand['skill'] }}</div>
+                            </div>
+                        </div>
+                        <p class="mb-1"><i class="bi bi-briefcase-fill me-1"></i><strong>Experience:</strong> {{ cand['experience'] }} yrs</p>
+                        <p class="mb-1"><i class="bi bi-mortarboard-fill me-1"></i><strong>Certification:</strong> {{ cand['certification'] }}</p>
+                        <p class="mb-1"><i class="bi bi-geo-alt-fill me-1"></i><strong>Location:</strong> {{ cand['location'] }}</p>
+                        <p class="text-muted small">{{ cand['bio']|truncate(80) }}</p>
+                        <a href="{{ url_for('candidate_detail', cand_id=cand['id']) }}" class="btn btn-outline-primary btn-sm mt-2">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="col-12 text-muted fst-italic">No matching candidates found.</div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

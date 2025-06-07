@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+  <div class="text-center">
+    <h1 class="animate__animated animate__fadeInDown">Welcome to Buddy Jobs Portal</h1>
+    <p class="lead">Find your dream job or the perfect candidate!</p>
+    <a href="{{ url_for('job_search') }}" class="btn btn-primary btn-lg animate__animated animate__pulse animate__infinite">Job Seeker Search</a>
+    <a href="{{ url_for('candidate_search') }}" class="btn btn-success btn-lg animate__animated animate__pulse animate__infinite">Recruiter Search</a>
+  </div>
+  <hr>
+  <div class="row mt-4">
+    <div class="col-md-4">
+      <div class="card animate__animated animate__fadeInLeft">
+        <div class="card-body">
+          <h5 class="card-title">Featured Job</h5>
+          <p class="card-text">Software Engineer at TechBuddy<br>Build amazing products with us!</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card animate__animated animate__fadeInUp">
+        <div class="card-body">
+          <h5 class="card-title">Featured Candidate</h5>
+          <p class="card-text">Riya Sharma - Frontend Developer<br>3 yrs experience. React, Vue, JS.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card animate__animated animate__fadeInRight">
+        <div class="card-body">
+          <h5 class="card-title">Buddy Testimonials</h5>
+          <p class="card-text">"Found my dream team with Buddy Jobs!" – Aakash</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
